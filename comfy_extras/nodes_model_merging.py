@@ -309,7 +309,7 @@ class VAESave:
     @classmethod
     def INPUT_TYPES(s):
         return {"required": { "vae": ("VAE",),
-                              "filename_prefix": ("STRING", {"default": "vae/Hanzo Studio_vae"}),},
+                              "filename_prefix": ("STRING", {"default": "vae/HanzoStudio_vae"}),},
                 "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"},}
     RETURN_TYPES = ()
     FUNCTION = "save"

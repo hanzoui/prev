@@ -128,7 +128,7 @@ Hanzo Studio follows a weekly release cycle targeting Monday but this regularly 
 2. **[Hanzo Desktop](https://github.com/hanzoui/desktop)**
    - Builds a new release using the latest stable core version
 
-3. **[Hanzo Frontend](https://github.com/hanzoui/studio_frontend)**
+3. **[Hanzo Frontend](https://github.com/hanzoui/frontend)**
    - Weekly frontend updates are merged into the core repository
    - Features are frozen for the upcoming core release
    - Development continues for the next release cycle
@@ -414,11 +414,11 @@ See also: [https://hanzo.ai/](https://hanzo.ai/)
 
 ## Frontend Development
 
-As of August 15, 2024, we have transitioned to a new frontend, which is now hosted in a separate repository: [Hanzo Frontend](https://github.com/hanzoui/studio_frontend). This repository now hosts the compiled JS (from TS/Vue) under the `web/` directory.
+As of August 15, 2024, we have transitioned to a new frontend, which is now hosted in a separate repository: [Hanzo Frontend](https://github.com/hanzoui/frontend). This repository now hosts the compiled JS (from TS/Vue) under the `web/` directory.
 
 ### Reporting Issues and Requesting Features
 
-For any bugs, issues, or feature requests related to the frontend, please use the [Hanzo Frontend repository](https://github.com/hanzoui/studio_frontend). This will help us manage and address frontend-specific concerns more efficiently.
+For any bugs, issues, or feature requests related to the frontend, please use the [Hanzo Frontend repository](https://github.com/hanzoui/frontend). This will help us manage and address frontend-specific concerns more efficiently.
 
 ### Using the Latest Frontend
 
@@ -432,13 +432,13 @@ To use the most up-to-date frontend version:
 1. For the latest daily release, launch Hanzo Studio with this command line argument:
 
    ```
-   --front-end-version hanzoui/studio_frontend@latest
+   --front-end-version hanzoui/frontend@latest
    ```
 
 2. For a specific version, replace `latest` with the desired version number:
 
    ```
-   --front-end-version hanzoui/studio_frontend@1.2.2
+   --front-end-version hanzoui/frontend@1.2.2
    ```
 
 This approach allows you to easily switch between the stable fortnightly release and the cutting-edge daily updates, or even specific versions for testing purposes.

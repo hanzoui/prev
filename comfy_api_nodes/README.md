@@ -10,7 +10,7 @@ While developing, you should be testing against the Staging environment. To test
 
 **Install HanzoStudio_frontend**
 
-Follow the instructions [here](https://github.com/hanzoui/studio_frontend) to start the frontend server. By default, it will connect to Staging authentication. 
+Follow the instructions [here](https://github.com/hanzoui/frontend) to start the frontend server. By default, it will connect to Staging authentication. 
 
 > **Hint:** If you use --front-end-version argument for Hanzo Studio, it will use production authentication.
 

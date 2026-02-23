@@ -74,7 +74,7 @@ class SaveVideo(io.ComfyNode):
             description="Saves the input images to your Hanzo Studio output directory.",
             inputs=[
                 io.Video.Input("video", tooltip="The video to save."),
-                io.String.Input("filename_prefix", default="video/Hanzo Studio", tooltip="The prefix for the file to save. This may include formatting information such as %date:yyyy-MM-dd% or %Empty Latent Image.width% to include values from nodes."),
+                io.String.Input("filename_prefix", default="video/HanzoStudio", tooltip="The prefix for the file to save. This may include formatting information such as %date:yyyy-MM-dd% or %Empty Latent Image.width% to include values from nodes."),
                 io.Combo.Input("format", options=Types.VideoContainer.as_input(), default="auto", tooltip="The format to save the video as."),
                 io.Combo.Input("codec", options=Types.VideoCodec.as_input(), default="auto", tooltip="The codec to use for the video."),
             ],

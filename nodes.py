@@ -467,7 +467,7 @@ class SaveLatent:
     @classmethod
     def INPUT_TYPES(s):
         return {"required": { "samples": ("LATENT", ),
-                              "filename_prefix": ("STRING", {"default": "latents/Hanzo Studio"})},
+                              "filename_prefix": ("STRING", {"default": "latents/HanzoStudio"})},
                 "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"},
                 }
     RETURN_TYPES = ()
@@ -2114,13 +2114,13 @@ def get_module_name(module_path: str) -> str:
     """
     Returns the module name based on the given module path.
     Examples:
-        get_module_name("C:/Users/username/Hanzo Studio/custom_nodes/my_custom_node.py") -> "my_custom_node"
-        get_module_name("C:/Users/username/Hanzo Studio/custom_nodes/my_custom_node") -> "my_custom_node"
-        get_module_name("C:/Users/username/Hanzo Studio/custom_nodes/my_custom_node/") -> "my_custom_node"
-        get_module_name("C:/Users/username/Hanzo Studio/custom_nodes/my_custom_node/__init__.py") -> "my_custom_node"
-        get_module_name("C:/Users/username/Hanzo Studio/custom_nodes/my_custom_node/__init__") -> "my_custom_node"
-        get_module_name("C:/Users/username/Hanzo Studio/custom_nodes/my_custom_node/__init__/") -> "my_custom_node"
-        get_module_name("C:/Users/username/Hanzo Studio/custom_nodes/my_custom_node.disabled") -> "custom_nodes
+        get_module_name("C:/Users/username/HanzoStudio/custom_nodes/my_custom_node.py") -> "my_custom_node"
+        get_module_name("C:/Users/username/HanzoStudio/custom_nodes/my_custom_node") -> "my_custom_node"
+        get_module_name("C:/Users/username/HanzoStudio/custom_nodes/my_custom_node/") -> "my_custom_node"
+        get_module_name("C:/Users/username/HanzoStudio/custom_nodes/my_custom_node/__init__.py") -> "my_custom_node"
+        get_module_name("C:/Users/username/HanzoStudio/custom_nodes/my_custom_node/__init__") -> "my_custom_node"
+        get_module_name("C:/Users/username/HanzoStudio/custom_nodes/my_custom_node/__init__/") -> "my_custom_node"
+        get_module_name("C:/Users/username/HanzoStudio/custom_nodes/my_custom_node.disabled") -> "custom_nodes
     Args:
         module_path (str): The path of the module.
     Returns:

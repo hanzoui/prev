@@ -21,8 +21,8 @@
 <!-- Workaround to display total user from https://github.com/badges/shields/issues/4500#issuecomment-2060079995 -->
 [discord-shield]: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscord.com%2Fapi%2Finvites%2Fcomfyorg%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&logo=discord&logoColor=white&label=Discord&color=green&suffix=%20total
 [discord-url]: https://hanzo.ai/discord
-[twitter-shield]: https://img.shields.io/twitter/follow/Hanzo Studio
-[twitter-url]: https://x.com/Hanzo Studio
+[twitter-shield]: https://img.shields.io/twitter/follow/HanzoStudio
+[twitter-url]: https://x.com/HanzoStudio
 
 [github-release-shield]: https://img.shields.io/github/v/release/hanzoai/studio?style=flat&sort=semver
 [github-release-link]: https://github.com/hanzoai/studio/releases

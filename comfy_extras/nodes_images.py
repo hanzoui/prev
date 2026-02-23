@@ -193,7 +193,7 @@ class SaveAnimatedPNG(IO.ComfyNode):
 
 
 class ImageStitch(IO.ComfyNode):
-    """Upstreamed from https://github.com/kijai/Hanzo Studio-KJNodes"""
+    """Upstreamed from https://github.com/kijai/HanzoStudio-KJNodes"""
 
     @classmethod
     def define_schema(cls):
@@ -431,7 +431,7 @@ class SaveSVGNode(IO.ComfyNode):
                 IO.SVG.Input("svg"),
                 IO.String.Input(
                     "filename_prefix",
-                    default="svg/Hanzo Studio",
+                    default="svg/HanzoStudio",
                     tooltip="The prefix for the file to save. This may include formatting information such as %date:yyyy-MM-dd% or %Empty Latent Image.width% to include values from nodes.",
                 ),
             ],
@@ -440,7 +440,7 @@ class SaveSVGNode(IO.ComfyNode):
         )
 
     @classmethod
-    def execute(cls, svg: IO.SVG.Type, filename_prefix="svg/Hanzo Studio") -> IO.NodeOutput:
+    def execute(cls, svg: IO.SVG.Type, filename_prefix="svg/HanzoStudio") -> IO.NodeOutput:
         full_output_folder, filename, counter, subfolder, filename_prefix = folder_paths.get_save_image_path(filename_prefix, folder_paths.get_output_directory())
         results: list[UI.SavedResult] = []
 

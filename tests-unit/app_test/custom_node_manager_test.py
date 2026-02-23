@@ -19,7 +19,7 @@ def app(custom_node_manager):
     app = web.Application()
     routes = web.RouteTableDef()
     custom_node_manager.add_routes(
-        routes, app, [("Hanzo Studio-TestExtension1", "Hanzo Studio-TestExtension1")]
+        routes, app, [("HanzoStudio-TestExtension1", "HanzoStudio-TestExtension1")]
     )
     app.add_routes(routes)
     return app
@@ -30,7 +30,7 @@ async def test_get_workflow_templates(aiohttp_client, app, tmp_path):
     # Setup temporary custom nodes file structure with 1 workflow file
     custom_nodes_dir = tmp_path / "custom_nodes"
     example_workflows_dir = (
-        custom_nodes_dir / "Hanzo Studio-TestExtension1" / "example_workflows"
+        custom_nodes_dir / "HanzoStudio-TestExtension1" / "example_workflows"
     )
     example_workflows_dir.mkdir(parents=True)
     template_file = example_workflows_dir / "workflow1.json"
@@ -44,9 +44,9 @@ async def test_get_workflow_templates(aiohttp_client, app, tmp_path):
         assert response.status == 200
         workflows_dict = await response.json()
         assert isinstance(workflows_dict, dict)
-        assert "Hanzo Studio-TestExtension1" in workflows_dict
-        assert isinstance(workflows_dict["Hanzo Studio-TestExtension1"], list)
-        assert workflows_dict["Hanzo Studio-TestExtension1"][0] == "workflow1"
+        assert "HanzoStudio-TestExtension1" in workflows_dict
+        assert isinstance(workflows_dict["HanzoStudio-TestExtension1"], list)
+        assert workflows_dict["HanzoStudio-TestExtension1"][0] == "workflow1"
 
 
 async def test_build_translations_empty_when_no_locales(custom_node_manager, tmp_path):

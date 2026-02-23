@@ -516,7 +516,7 @@ def save_glb(vertices, faces, filepath, metadata=None):
     indices_byte_offset = len(vertices_buffer_padded)
 
     gltf = {
-        "asset": {"version": "2.0", "generator": "ComfyUI"},
+        "asset": {"version": "2.0", "generator": "Hanzo Studio"},
         "buffers": [
             {
                 "byteLength": len(buffer_data)
@@ -622,7 +622,7 @@ class SaveGLB(IO.ComfyNode):
             is_output_node=True,
             inputs=[
                 IO.Mesh.Input("mesh"),
-                IO.String.Input("filename_prefix", default="mesh/ComfyUI"),
+                IO.String.Input("filename_prefix", default="mesh/Hanzo Studio"),
             ],
             hidden=[IO.Hidden.prompt, IO.Hidden.extra_pnginfo]
         )

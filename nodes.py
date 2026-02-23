@@ -44,7 +44,7 @@ import latent_preview
 import node_helpers
 
 if args.enable_manager:
-    import comfyui_manager
+    import hanzo_studio_manager
 
 def before_node_execution():
     comfy.model_management.throw_exception_if_processing_interrupted()
@@ -467,7 +467,7 @@ class SaveLatent:
     @classmethod
     def INPUT_TYPES(s):
         return {"required": { "samples": ("LATENT", ),
-                              "filename_prefix": ("STRING", {"default": "latents/ComfyUI"})},
+                              "filename_prefix": ("STRING", {"default": "latents/Hanzo Studio"})},
                 "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"},
                 }
     RETURN_TYPES = ()
@@ -477,7 +477,7 @@ class SaveLatent:
 
     CATEGORY = "_for_testing"
 
-    def save(self, samples, filename_prefix="ComfyUI", prompt=None, extra_pnginfo=None):
+    def save(self, samples, filename_prefix="Hanzo Studio", prompt=None, extra_pnginfo=None):
         full_output_folder, filename, counter, subfolder, filename_prefix = folder_paths.get_save_image_path(filename_prefix, self.output_dir)
 
         # support save metadata for latent sharing
@@ -1587,7 +1587,7 @@ class SaveImage:
         return {
             "required": {
                 "images": ("IMAGE", {"tooltip": "The images to save."}),
-                "filename_prefix": ("STRING", {"default": "ComfyUI", "tooltip": "The prefix for the file to save. This may include formatting information such as %date:yyyy-MM-dd% or %Empty Latent Image.width% to include values from nodes."})
+                "filename_prefix": ("STRING", {"default": "Hanzo Studio", "tooltip": "The prefix for the file to save. This may include formatting information such as %date:yyyy-MM-dd% or %Empty Latent Image.width% to include values from nodes."})
             },
             "hidden": {
                 "prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"
@@ -1600,9 +1600,9 @@ class SaveImage:
     OUTPUT_NODE = True
 
     CATEGORY = "image"
-    DESCRIPTION = "Saves the input images to your ComfyUI output directory."
+    DESCRIPTION = "Saves the input images to your Hanzo Studio output directory."
 
-    def save_images(self, images, filename_prefix="ComfyUI", prompt=None, extra_pnginfo=None):
+    def save_images(self, images, filename_prefix="Hanzo Studio", prompt=None, extra_pnginfo=None):
         filename_prefix += self.prefix_append
         full_output_folder, filename, counter, subfolder, filename_prefix = folder_paths.get_save_image_path(filename_prefix, self.output_dir, images[0].shape[1], images[0].shape[0])
         results = list()
@@ -2114,13 +2114,13 @@ def get_module_name(module_path: str) -> str:
     """
     Returns the module name based on the given module path.
     Examples:
-        get_module_name("C:/Users/username/ComfyUI/custom_nodes/my_custom_node.py") -> "my_custom_node"
-        get_module_name("C:/Users/username/ComfyUI/custom_nodes/my_custom_node") -> "my_custom_node"
-        get_module_name("C:/Users/username/ComfyUI/custom_nodes/my_custom_node/") -> "my_custom_node"
-        get_module_name("C:/Users/username/ComfyUI/custom_nodes/my_custom_node/__init__.py") -> "my_custom_node"
-        get_module_name("C:/Users/username/ComfyUI/custom_nodes/my_custom_node/__init__") -> "my_custom_node"
-        get_module_name("C:/Users/username/ComfyUI/custom_nodes/my_custom_node/__init__/") -> "my_custom_node"
-        get_module_name("C:/Users/username/ComfyUI/custom_nodes/my_custom_node.disabled") -> "custom_nodes
+        get_module_name("C:/Users/username/Hanzo Studio/custom_nodes/my_custom_node.py") -> "my_custom_node"
+        get_module_name("C:/Users/username/Hanzo Studio/custom_nodes/my_custom_node") -> "my_custom_node"
+        get_module_name("C:/Users/username/Hanzo Studio/custom_nodes/my_custom_node/") -> "my_custom_node"
+        get_module_name("C:/Users/username/Hanzo Studio/custom_nodes/my_custom_node/__init__.py") -> "my_custom_node"
+        get_module_name("C:/Users/username/Hanzo Studio/custom_nodes/my_custom_node/__init__") -> "my_custom_node"
+        get_module_name("C:/Users/username/Hanzo Studio/custom_nodes/my_custom_node/__init__/") -> "my_custom_node"
+        get_module_name("C:/Users/username/Hanzo Studio/custom_nodes/my_custom_node.disabled") -> "custom_nodes
     Args:
         module_path (str): The path of the module.
     Returns:
@@ -2256,7 +2256,7 @@ async def init_external_custom_nodes():
                 continue
 
             if args.enable_manager:
-                if comfyui_manager.should_be_disabled(module_path):
+                if hanzo_studio_manager.should_be_disabled(module_path):
                     logging.info(f"Blocked by policy: {module_path}")
                     continue
 
@@ -2276,9 +2276,9 @@ async def init_external_custom_nodes():
 
 async def init_builtin_extra_nodes():
     """
-    Initializes the built-in extra nodes in ComfyUI.
+    Initializes the built-in extra nodes in Hanzo Studio.
 
-    This function loads the extra node files located in the "comfy_extras" directory and imports them into ComfyUI.
+    This function loads the extra node files located in the "comfy_extras" directory and imports them into Hanzo Studio.
     If any of the extra node files fail to import, a warning message is logged.
 
     Returns:
@@ -2441,7 +2441,7 @@ async def init_extra_nodes(init_custom_nodes=True, init_api_nodes=True):
         logging.warning("WARNING: some comfy_api_nodes/ nodes did not import correctly. This may be because they are missing some dependencies.\n")
         for node in import_failed_api:
             logging.warning("IMPORT FAILED: {}".format(node))
-        logging.warning("\nThis issue might be caused by new missing dependencies added the last time you updated ComfyUI.")
+        logging.warning("\nThis issue might be caused by new missing dependencies added the last time you updated Hanzo Studio.")
         if args.windows_standalone_build:
             logging.warning("Please run the update script: update/update_comfyui.bat")
         else:
@@ -2452,7 +2452,7 @@ async def init_extra_nodes(init_custom_nodes=True, init_api_nodes=True):
         logging.warning("WARNING: some comfy_extras/ nodes did not import correctly. This may be because they are missing some dependencies.\n")
         for node in import_failed:
             logging.warning("IMPORT FAILED: {}".format(node))
-        logging.warning("\nThis issue might be caused by new missing dependencies added the last time you updated ComfyUI.")
+        logging.warning("\nThis issue might be caused by new missing dependencies added the last time you updated Hanzo Studio.")
         if args.windows_standalone_build:
             logging.warning("Please run the update script: update/update_comfyui.bat")
         else:

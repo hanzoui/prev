@@ -17,7 +17,7 @@ from comfy_api import feature_flags
 
 
 if __name__ == "__main__":
-    #NOTE: These do not do anything on core ComfyUI, they are for custom nodes.
+    #NOTE: These do not do anything on core Hanzo Studio, they are for custom nodes.
     os.environ['HF_HUB_DISABLE_TELEMETRY'] = '1'
     os.environ['DO_NOT_TRACK'] = '1'
 
@@ -56,20 +56,20 @@ if __name__ == "__main__":
         os.environ['OCL_SET_SVM_SIZE'] = '262144'  # set at the request of AMD
 
 
-def handle_comfyui_manager_unavailable():
+def handle_hanzo_studio_manager_unavailable():
     if not args.windows_standalone_build:
-        logging.warning(f"\n\nYou appear to be running comfyui-manager from source, this is not recommended. Please install comfyui-manager using the following command:\ncommand:\n\t{sys.executable} -m pip install --pre comfyui_manager\n")
+        logging.warning(f"\n\nYou appear to be running hanzo-studio-manager from source, this is not recommended. Please install hanzo-studio-manager using the following command:\ncommand:\n\t{sys.executable} -m pip install --pre hanzo_studio_manager\n")
     args.enable_manager = False
 
 
 if args.enable_manager:
-    if importlib.util.find_spec("comfyui_manager"):
-        import comfyui_manager
+    if importlib.util.find_spec("hanzo_studio_manager"):
+        import hanzo_studio_manager
 
-        if not comfyui_manager.__file__ or not comfyui_manager.__file__.endswith('__init__.py'):
-            handle_comfyui_manager_unavailable()
+        if not hanzo_studio_manager.__file__ or not hanzo_studio_manager.__file__.endswith('__init__.py'):
+            handle_hanzo_studio_manager_unavailable()
     else:
-        handle_comfyui_manager_unavailable()
+        handle_hanzo_studio_manager_unavailable()
 
 
 def apply_custom_paths():
@@ -131,7 +131,7 @@ def execute_prestartup_script():
             module_path = os.path.join(custom_node_path, possible_module)
 
             if args.enable_manager:
-                if comfyui_manager.should_be_disabled(module_path):
+                if hanzo_studio_manager.should_be_disabled(module_path):
                     continue
 
             if os.path.isfile(module_path) or module_path.endswith(".disabled") or module_path == "__pycache__":
@@ -158,7 +158,7 @@ def execute_prestartup_script():
 apply_custom_paths()
 
 if args.enable_manager:
-    comfyui_manager.prestartup()
+    hanzo_studio_manager.prestartup()
 
 execute_prestartup_script()
 
@@ -179,7 +179,7 @@ import server
 from protocol import BinaryEventTypes
 import nodes
 import comfy.model_management
-import comfyui_version
+import hanzo_studio_version
 import app.logger
 import hook_breaker_ac10a0
 
@@ -192,7 +192,7 @@ def cuda_malloc_warning():
             if b in device_name:
                 cuda_malloc_warning = True
         if cuda_malloc_warning:
-            logging.warning("\nWARNING: this card most likely does not support cuda-malloc, if you get \"CUDA error\" please run ComfyUI with: --disable-cuda-malloc\n")
+            logging.warning("\nWARNING: this card most likely does not support cuda-malloc, if you get \"CUDA error\" please run Hanzo Studio with: --disable-cuda-malloc\n")
 
 
 def prompt_worker(q, server_instance):
@@ -330,7 +330,7 @@ def setup_database():
 
 def start_comfyui(asyncio_loop=None):
     """
-    Starts the ComfyUI server using the provided asyncio event loop or creates a new one.
+    Starts the Hanzo Studio server using the provided asyncio event loop or creates a new one.
     Returns the event loop, server instance, and a function to start the server asynchronously.
     """
     if args.temp_directory:
@@ -352,7 +352,7 @@ def start_comfyui(asyncio_loop=None):
     prompt_server = server.PromptServer(asyncio_loop)
 
     if args.enable_manager and not args.disable_manager_ui:
-        comfyui_manager.start()
+        hanzo_studio_manager.start()
 
     hook_breaker_ac10a0.save_functions()
     asyncio_loop.run_until_complete(nodes.init_extra_nodes(
@@ -388,14 +388,14 @@ def start_comfyui(asyncio_loop=None):
         await prompt_server.setup()
         await run(prompt_server, address=args.listen, port=args.port, verbose=not args.dont_print_server, call_on_start=call_on_start)
 
-    # Returning these so that other code can integrate with the ComfyUI loop and server
+    # Returning these so that other code can integrate with the Hanzo Studio loop and server
     return asyncio_loop, prompt_server, start_all
 
 
 if __name__ == "__main__":
-    # Running directly, just start ComfyUI.
+    # Running directly, just start Hanzo Studio.
     logging.info("Python version: {}".format(sys.version))
-    logging.info("ComfyUI version: {}".format(comfyui_version.__version__))
+    logging.info("Hanzo Studio version: {}".format(hanzo_studio_version.__version__))
 
     if sys.version_info.major == 3 and sys.version_info.minor < 10:
         logging.warning("WARNING: You are using a python version older than 3.10, please upgrade to a newer one. 3.12 and above is recommended.")

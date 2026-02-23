@@ -387,7 +387,7 @@ class ThresholdMask(IO.ComfyNode):
 
 
 # Mask Preview - original implement from
-# https://github.com/cubiq/ComfyUI_essentials/blob/9d9f4bedfc9f0321c19faf71855e228c93bd0dc9/mask.py#L81
+# https://github.com/cubiq/Hanzo Studio_essentials/blob/9d9f4bedfc9f0321c19faf71855e228c93bd0dc9/mask.py#L81
 # upstream requested in https://github.com/Kosinkadink/rfcs/blob/main/rfcs/0000-corenodes.md#preview-nodes
 class MaskPreview(IO.ComfyNode):
     @classmethod
@@ -396,7 +396,7 @@ class MaskPreview(IO.ComfyNode):
             node_id="MaskPreview",
             display_name="Preview Mask",
             category="mask",
-            description="Saves the input images to your ComfyUI output directory.",
+            description="Saves the input images to your Hanzo Studio output directory.",
             inputs=[
                 IO.Mask.Input("mask"),
             ],
@@ -405,7 +405,7 @@ class MaskPreview(IO.ComfyNode):
         )
 
     @classmethod
-    def execute(cls, mask, filename_prefix="ComfyUI") -> IO.NodeOutput:
+    def execute(cls, mask, filename_prefix="Hanzo Studio") -> IO.NodeOutput:
         return IO.NodeOutput(ui=UI.PreviewMask(mask))
 
 

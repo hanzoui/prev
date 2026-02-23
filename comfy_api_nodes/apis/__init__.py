@@ -2661,7 +2661,7 @@ class Attention(str, Enum):
 
 class Project(str, Enum):
     comfyui = 'comfyui'
-    comfyui_frontend = 'comfyui_frontend'
+    hanzo_studio_frontend = 'hanzo_studio_frontend'
     desktop = 'desktop'
 
 
@@ -5375,11 +5375,11 @@ class NodeVersion(BaseModel):
         None,
         description='List of accelerators (e.g. CUDA, DirectML, ROCm) that this node supports',
     )
-    supported_comfyui_frontend_version: Optional[str] = Field(
-        None, description='Supported versions of ComfyUI frontend'
+    supported_hanzo_studio_frontend_version: Optional[str] = Field(
+        None, description='Supported versions of Hanzo Studio frontend'
     )
-    supported_comfyui_version: Optional[str] = Field(
-        None, description='Supported versions of ComfyUI'
+    supported_hanzo_studio_version: Optional[str] = Field(
+        None, description='Supported versions of Hanzo Studio'
     )
     supported_os: Optional[List[str]] = Field(
         None, description='List of operating systems that this node supports'
@@ -6027,11 +6027,11 @@ class Node(BaseModel):
         None,
         description='List of accelerators (e.g. CUDA, DirectML, ROCm) that this node supports',
     )
-    supported_comfyui_frontend_version: Optional[str] = Field(
-        None, description='Supported versions of ComfyUI frontend'
+    supported_hanzo_studio_frontend_version: Optional[str] = Field(
+        None, description='Supported versions of Hanzo Studio frontend'
     )
-    supported_comfyui_version: Optional[str] = Field(
-        None, description='Supported versions of ComfyUI'
+    supported_hanzo_studio_version: Optional[str] = Field(
+        None, description='Supported versions of Hanzo Studio'
     )
     supported_os: Optional[List[str]] = Field(
         None, description='List of operating systems that this node supports'

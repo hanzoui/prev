@@ -51,7 +51,7 @@ async def upload_images_to_comfyapi(
     show_batch_index: bool = True,
 ) -> list[str]:
     """
-    Uploads images to ComfyUI API and returns download URLs.
+    Uploads images to Hanzo Studio API and returns download URLs.
     To upload multiple images, stack them in the batch dimension first.
     """
     # if batched, try to upload each file if max_images is greater than 0
@@ -84,7 +84,7 @@ async def upload_audio_to_comfyapi(
     filename: str = "uploaded_audio.mp4",
 ) -> str:
     """
-    Uploads a single audio input to ComfyUI API and returns its download URL.
+    Uploads a single audio input to Hanzo Studio API and returns its download URL.
     Encodes the raw waveform into the specified format before uploading.
     """
     sample_rate: int = audio["sample_rate"]
@@ -104,7 +104,7 @@ async def upload_video_to_comfyapi(
     wait_label: str | None = "Uploading",
 ) -> str:
     """
-    Uploads a single video to ComfyUI API and returns its download URL.
+    Uploads a single video to Hanzo Studio API and returns its download URL.
     Uses the specified container and codec for saving the video before upload.
     """
     if max_duration is not None:
@@ -137,7 +137,7 @@ async def upload_file_to_comfyapi(
     wait_label: str | None = "Uploading",
     progress_origin_ts: float | None = None,
 ) -> str:
-    """Uploads a single file to ComfyUI API and returns its download URL."""
+    """Uploads a single file to Hanzo Studio API and returns its download URL."""
     if upload_mime_type is None:
         request_object = UploadRequest(file_name=filename)
     else:

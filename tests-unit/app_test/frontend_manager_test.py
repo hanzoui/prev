@@ -179,7 +179,7 @@ def test_get_frontend_version():
     expected_version = "1.25.0"
     mock_requirements_content = """torch
 torchsde
-comfyui-frontend-package==1.25.0
+hanzo-studio-frontend-package==1.25.0
 other-package==1.0.0
 numpy"""
 
@@ -195,7 +195,7 @@ def test_get_frontend_version_invalid_semver():
     # Arrange
     mock_requirements_content = """torch
 torchsde
-comfyui-frontend-package==1.29.3.75
+hanzo-studio-frontend-package==1.29.3.75
 other-package==1.0.0
 numpy"""
 
@@ -212,8 +212,8 @@ def test_get_templates_version():
     expected_version = "0.1.41"
     mock_requirements_content = """torch
 torchsde
-comfyui-frontend-package==1.25.0
-comfyui-workflow-templates==0.1.41
+hanzo-studio-frontend-package==1.25.0
+hanzo-studio-workflow-templates==0.1.41
 other-package==1.0.0
 numpy"""
 
@@ -229,7 +229,7 @@ def test_get_templates_version_not_found():
     # Arrange
     mock_requirements_content = """torch
 torchsde
-comfyui-frontend-package==1.25.0
+hanzo-studio-frontend-package==1.25.0
 other-package==1.0.0
 numpy"""
 
@@ -245,7 +245,7 @@ def test_get_templates_version_invalid_semver():
     # Arrange
     mock_requirements_content = """torch
 torchsde
-comfyui-workflow-templates==1.0.0.beta
+hanzo-studio-workflow-templates==1.0.0.beta
 other-package==1.0.0
 numpy"""
 

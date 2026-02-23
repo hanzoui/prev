@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing import List, Optional
 
 # IMPORTANT: The type definitions specified in pyproject.toml for custom nodes
-# must remain synchronized with the corresponding files in the https://github.com/Comfy-Org/comfy-cli/blob/main/comfy_cli/registry/types.py.
+# must remain synchronized with the corresponding files in the https://github.com/hanzoui/cli/blob/main/hanzo_cli/registry/types.py.
 # Any changes to one must be reflected in the other to maintain consistency.
 
 class NodeVersion(BaseModel):
@@ -68,8 +68,8 @@ class ProjectConfig(BaseModel):
     urls: URLs = Field(default_factory=URLs)
     supported_os: List[str] = Field(default_factory=list)
     supported_accelerators: List[str] = Field(default_factory=list)
-    supported_comfyui_version: str = ""
-    supported_comfyui_frontend_version: str = ""
+    supported_hanzo_studio_version: str = ""
+    supported_hanzo_studio_frontend_version: str = ""
 
     @field_validator('license', mode='before')
     @classmethod

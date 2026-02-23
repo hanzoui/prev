@@ -108,7 +108,7 @@ class InputTypeOptions(TypedDict):
     """@deprecated in v1.16 frontend. v1.16 frontend allows input socket and widget to co-exist.
     - defaultInput on required inputs should be dropped.
     - defaultInput on optional inputs should be replaced with forceInput.
-    Ref: https://github.com/hanzoui/studio_frontend/pull/3364
+    Ref: https://github.com/hanzoui/frontend/pull/3364
     """
     forceInput: NotRequired[bool]
     """Forces the input to be an input slot rather than a widget even a widget is available for the input type."""
@@ -121,12 +121,12 @@ class InputTypeOptions(TypedDict):
     socketless: NotRequired[bool]
     """All inputs (including widgets) have an input socket to connect links. When ``true``, if there is a widget for this input, no socket will be created.
     Available from frontend v1.17.5
-    Ref: https://github.com/hanzoui/studio_frontend/pull/3548
+    Ref: https://github.com/hanzoui/frontend/pull/3548
     """
     widgetType: NotRequired[str]
     """Specifies a type to be used for widget initialization if different from the input type.
     Available from frontend v1.18.0
-    https://github.com/hanzoui/studio_frontend/pull/3550"""
+    https://github.com/hanzoui/frontend/pull/3550"""
     # class InputTypeNumber(InputTypeOptions):
     # default: float | int
     min: NotRequired[float]
@@ -162,7 +162,7 @@ class InputTypeOptions(TypedDict):
     remote: NotRequired[RemoteInputOptions]
     """Specifies the configuration for a remote input.
     Available after Hanzo Studio frontend v1.9.7
-    https://github.com/hanzoui/studio_frontend/pull/2422"""
+    https://github.com/hanzoui/frontend/pull/2422"""
     control_after_generate: NotRequired[bool]
     """Specifies whether a control widget should be added to the input, adding options to automatically change the value after each prompt is queued. Currently only used for INT and COMBO types."""
     options: NotRequired[list[str | int | float]]
@@ -175,7 +175,7 @@ class InputTypeOptions(TypedDict):
     multi_select: NotRequired[MultiSelectOptions]
     """COMBO type only. Specifies the configuration for a multi-select widget.
     Available after Hanzo Studio frontend v1.13.4
-    https://github.com/hanzoui/studio_frontend/pull/2987"""
+    https://github.com/hanzoui/frontend/pull/2987"""
 
 
 class HiddenInputTypeDict(TypedDict):

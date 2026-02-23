@@ -1,3 +1,4 @@
+# Secrets: Hanzo KMS (kms.hanzo.ai) — auth via Hanzo IAM
 # This is the GitHub Workflow that drives automatic full-GPU-enabled tests of all new commits to the master branch of Hanzo Studio
 # Results are reported as checkmarks on the commits, as well as onto https://ci.hanzo.ai/
 name: Full Comfy CI Workflow Runs
@@ -39,13 +40,20 @@ jobs:
           #   flags: ""
     runs-on: ${{ matrix.runner_label }}
     steps:
+      - name: Fetch secrets from Hanzo KMS
+        id: kms
+        uses: hanzoui/.github/actions/kms-secrets@main
+        with:
+          kms_client_id: ${{ secrets.KMS_CLIENT_ID }}
+          kms_client_secret: ${{ secrets.KMS_CLIENT_SECRET }}
+          secrets: 'GCS_SERVICE_ACCOUNT_JSON'
       - name: Test Workflows
-        uses: comfy-org/comfy-action@main
+        uses: hanzoui/action@main
         with:
           os: ${{ matrix.os }}
           python_version: ${{ matrix.python_version }}
           torch_version: ${{ matrix.torch_version }}
-          google_credentials: ${{ secrets.GCS_SERVICE_ACCOUNT_JSON }}
+          google_credentials: ${{ steps.kms.outputs.GCS_SERVICE_ACCOUNT_JSON }}
           hanzo_studio_flags: ${{ matrix.flags }}
 
   # test-win-nightly:
@@ -63,12 +71,12 @@ jobs:
   #   runs-on: ${{ matrix.runner_label }}
   #   steps:
   #     - name: Test Workflows
-  #       uses: comfy-org/comfy-action@main
+  #       uses: hanzoui/action@main
   #       with:
   #         os: ${{ matrix.os }}
   #         python_version: ${{ matrix.python_version }}
   #         torch_version: ${{ matrix.torch_version }}
-  #         google_credentials: ${{ secrets.GCS_SERVICE_ACCOUNT_JSON }}
+  #         google_credentials: ${{ steps.kms.outputs.GCS_SERVICE_ACCOUNT_JSON }}
   #         hanzo_studio_flags: ${{ matrix.flags }}
 
   test-unix-nightly:
@@ -89,11 +97,18 @@ jobs:
             flags: ""
     runs-on: ${{ matrix.runner_label }}
     steps:
+      - name: Fetch secrets from Hanzo KMS
+        id: kms
+        uses: hanzoui/.github/actions/kms-secrets@main
+        with:
+          kms_client_id: ${{ secrets.KMS_CLIENT_ID }}
+          kms_client_secret: ${{ secrets.KMS_CLIENT_SECRET }}
+          secrets: 'GCS_SERVICE_ACCOUNT_JSON'
       - name: Test Workflows
-        uses: comfy-org/comfy-action@main
+        uses: hanzoui/action@main
         with:
           os: ${{ matrix.os }}
           python_version: ${{ matrix.python_version }}
           torch_version: ${{ matrix.torch_version }}
-          google_credentials: ${{ secrets.GCS_SERVICE_ACCOUNT_JSON }}
+          google_credentials: ${{ steps.kms.outputs.GCS_SERVICE_ACCOUNT_JSON }}
           hanzo_studio_flags: ${{ matrix.flags }}

@@ -1,3 +1,4 @@
+# Secrets: Hanzo KMS (kms.hanzo.ai) — auth via Hanzo IAM
 name: Release Webhook
 
 on:
@@ -8,10 +9,17 @@ jobs:
   send-webhook:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch secrets from Hanzo KMS
+        id: kms
+        uses: hanzoui/.github/actions/kms-secrets@main
+        with:
+          kms_client_id: ${{ secrets.KMS_CLIENT_ID }}
+          kms_client_secret: ${{ secrets.KMS_CLIENT_SECRET }}
+          secrets: 'RELEASE_GITHUB_WEBHOOK_SECRET,RELEASE_GITHUB_WEBHOOK_URL'
       - name: Send release webhook
         env:
-          WEBHOOK_URL: ${{ secrets.RELEASE_GITHUB_WEBHOOK_URL }}
-          WEBHOOK_SECRET: ${{ secrets.RELEASE_GITHUB_WEBHOOK_SECRET }}
+          WEBHOOK_URL: ${{ steps.kms.outputs.RELEASE_GITHUB_WEBHOOK_URL }}
+          WEBHOOK_SECRET: ${{ steps.kms.outputs.RELEASE_GITHUB_WEBHOOK_SECRET }}
         run: |
           # Generate UUID for delivery ID
           DELIVERY_ID=$(uuidgen)

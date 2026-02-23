@@ -622,7 +622,7 @@ class SaveGLB(IO.ComfyNode):
             is_output_node=True,
             inputs=[
                 IO.Mesh.Input("mesh"),
-                IO.String.Input("filename_prefix", default="mesh/Hanzo Studio"),
+                IO.String.Input("filename_prefix", default="mesh/HanzoStudio"),
             ],
             hidden=[IO.Hidden.prompt, IO.Hidden.extra_pnginfo]
         )

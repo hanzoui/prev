@@ -233,7 +233,7 @@ class CheckpointSave:
         return {"required": { "model": ("MODEL",),
                               "clip": ("CLIP",),
                               "vae": ("VAE",),
-                              "filename_prefix": ("STRING", {"default": "checkpoints/Hanzo Studio"}),},
+                              "filename_prefix": ("STRING", {"default": "checkpoints/HanzoStudio"}),},
                 "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"},}
     RETURN_TYPES = ()
     FUNCTION = "save"
@@ -252,7 +252,7 @@ class CLIPSave:
     @classmethod
     def INPUT_TYPES(s):
         return {"required": { "clip": ("CLIP",),
-                              "filename_prefix": ("STRING", {"default": "clip/Hanzo Studio"}),},
+                              "filename_prefix": ("STRING", {"default": "clip/HanzoStudio"}),},
                 "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"},}
     RETURN_TYPES = ()
     FUNCTION = "save"
@@ -343,7 +343,7 @@ class ModelSave:
     @classmethod
     def INPUT_TYPES(s):
         return {"required": { "model": ("MODEL",),
-                              "filename_prefix": ("STRING", {"default": "diffusion_models/Hanzo Studio"}),},
+                              "filename_prefix": ("STRING", {"default": "diffusion_models/HanzoStudio"}),},
                 "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"},}
     RETURN_TYPES = ()
     FUNCTION = "save"

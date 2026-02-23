@@ -126,7 +126,7 @@ class SaveAudio(IO.ComfyNode):
             category="audio",
             inputs=[
                 IO.Audio.Input("audio"),
-                IO.String.Input("filename_prefix", default="audio/Hanzo Studio"),
+                IO.String.Input("filename_prefix", default="audio/HanzoStudio"),
             ],
             hidden=[IO.Hidden.prompt, IO.Hidden.extra_pnginfo],
             is_output_node=True,
@@ -150,7 +150,7 @@ class SaveAudioMP3(IO.ComfyNode):
             category="audio",
             inputs=[
                 IO.Audio.Input("audio"),
-                IO.String.Input("filename_prefix", default="audio/Hanzo Studio"),
+                IO.String.Input("filename_prefix", default="audio/HanzoStudio"),
                 IO.Combo.Input("quality", options=["V0", "128k", "320k"], default="V0"),
             ],
             hidden=[IO.Hidden.prompt, IO.Hidden.extra_pnginfo],
@@ -177,7 +177,7 @@ class SaveAudioOpus(IO.ComfyNode):
             category="audio",
             inputs=[
                 IO.Audio.Input("audio"),
-                IO.String.Input("filename_prefix", default="audio/Hanzo Studio"),
+                IO.String.Input("filename_prefix", default="audio/HanzoStudio"),
                 IO.Combo.Input("quality", options=["64k", "96k", "128k", "192k", "320k"], default="128k"),
             ],
             hidden=[IO.Hidden.prompt, IO.Hidden.extra_pnginfo],

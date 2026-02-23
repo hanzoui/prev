@@ -42,17 +42,17 @@ jobs:
         - shell: bash
           run: |
             cd ..
-            cp -r Hanzo Studio HanzoStudio_copy
+            cp -r HanzoStudio HanzoStudio_copy
             curl https://www.python.org/ftp/python/3.${{ inputs.python_minor }}.${{ inputs.python_patch }}/python-3.${{ inputs.python_minor }}.${{ inputs.python_patch }}-embed-amd64.zip -o python_embeded.zip
             unzip python_embeded.zip -d python_embeded
             cd python_embeded
             echo 'import site' >> ./python3${{ inputs.python_minor }}._pth
             curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
             ./python.exe get-pip.py
-            python -m pip wheel torch torchvision torchaudio --pre --extra-index-url https://download.pytorch.org/whl/nightly/cu${{ inputs.cu }} -r ../Hanzo Studio/requirements.txt pygit2 -w ../temp_wheel_dir
+            python -m pip wheel torch torchvision torchaudio --pre --extra-index-url https://download.pytorch.org/whl/nightly/cu${{ inputs.cu }} -r ../HanzoStudio/requirements.txt pygit2 -w ../temp_wheel_dir
             ls ../temp_wheel_dir
             ./python.exe -s -m pip install --pre ../temp_wheel_dir/*
-            sed -i '1i../Hanzo Studio' ./python3${{ inputs.python_minor }}._pth
+            sed -i '1i../HanzoStudio' ./python3${{ inputs.python_minor }}._pth
 
             rm ./Lib/site-packages/torch/lib/dnnl.lib #I don't think this is actually used and I need the space
             cd ..
@@ -62,25 +62,25 @@ jobs:
 
             mkdir HanzoStudio_windows_portable_nightly_pytorch
             mv python_embeded HanzoStudio_windows_portable_nightly_pytorch
-            mv HanzoStudio_copy HanzoStudio_windows_portable_nightly_pytorch/Hanzo Studio
+            mv HanzoStudio_copy HanzoStudio_windows_portable_nightly_pytorch/HanzoStudio
 
             cd HanzoStudio_windows_portable_nightly_pytorch
 
             mkdir update
-            cp -r Hanzo Studio/.ci/update_windows/* ./update/
-            cp -r Hanzo Studio/.ci/windows_nvidia_base_files/* ./
-            cp -r Hanzo Studio/.ci/windows_nightly_base_files/* ./
+            cp -r HanzoStudio/.ci/update_windows/* ./update/
+            cp -r HanzoStudio/.ci/windows_nvidia_base_files/* ./
+            cp -r HanzoStudio/.ci/windows_nightly_base_files/* ./
 
             echo "call update_comfyui.bat nopause
-            ..\python_embeded\python.exe -s -m pip install --upgrade --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cu${{ inputs.cu }} -r ../Hanzo Studio/requirements.txt pygit2
+            ..\python_embeded\python.exe -s -m pip install --upgrade --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cu${{ inputs.cu }} -r ../HanzoStudio/requirements.txt pygit2
             pause" > ./update/update_hanzo_studio_and_python_dependencies.bat
             cd ..
 
             "C:\Program Files\7-Zip\7z.exe" a -t7z -m0=lzma2 -mx=9 -mfb=128 -md=512m -ms=on -mf=BCJ2 HanzoStudio_windows_portable_nightly_pytorch.7z HanzoStudio_windows_portable_nightly_pytorch
-            mv HanzoStudio_windows_portable_nightly_pytorch.7z Hanzo Studio/HanzoStudio_windows_portable_nvidia_or_cpu_nightly_pytorch.7z
+            mv HanzoStudio_windows_portable_nightly_pytorch.7z HanzoStudio/HanzoStudio_windows_portable_nvidia_or_cpu_nightly_pytorch.7z
 
             cd HanzoStudio_windows_portable_nightly_pytorch
-            python_embeded/python.exe -s Hanzo Studio/main.py --quick-test-for-ci --cpu
+            python_embeded/python.exe -s HanzoStudio/main.py --quick-test-for-ci --cpu
 
             ls
 

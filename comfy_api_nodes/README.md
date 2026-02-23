@@ -1,21 +1,21 @@
-# ComfyUI API Nodes
+# Hanzo Studio API Nodes
 
 ## Introduction 
 
-Below are a collection of nodes that work by calling external APIs. More information available in our [docs](https://docs.comfy.org/tutorials/api-nodes/overview).
+Below are a collection of nodes that work by calling external APIs. More information available in our [docs](https://docs.hanzo.ai/tutorials/api-nodes/overview).
 
 ## Development
 
 While developing, you should be testing against the Staging environment. To test against staging:
 
-**Install ComfyUI_frontend**
+**Install Hanzo Studio_frontend**
 
-Follow the instructions [here](https://github.com/Comfy-Org/ComfyUI_frontend) to start the frontend server. By default, it will connect to Staging authentication. 
+Follow the instructions [here](https://github.com/hanzoui/studio_frontend) to start the frontend server. By default, it will connect to Staging authentication. 
 
-> **Hint:** If you use --front-end-version argument for ComfyUI, it will use production authentication.
+> **Hint:** If you use --front-end-version argument for Hanzo Studio, it will use production authentication.
 
 ```bash
-python run main.py --comfy-api-base https://stagingapi.comfy.org
+python run main.py --comfy-api-base https://stagingapi.hanzo.ai
 ```
 
 To authenticate to staging, please login and then ask one of Comfy Org team to whitelist you for access to staging.
@@ -31,7 +31,7 @@ Before your API node PR merges, make sure to add the `Released` tag to the `open
 
 ```bash
 # Download the OpenAPI file from staging server.
-curl -o openapi.yaml https://stagingapi.comfy.org/openapi
+curl -o openapi.yaml https://stagingapi.hanzo.ai/openapi
 
 # Filter out unneeded API definitions.
 npm install -g @redocly/cli
@@ -45,15 +45,15 @@ datamodel-codegen --use-subclass-enum --field-constraints --strict-types bytes -
 
 # Merging to Master
 
-Before merging to comfyanonymous/ComfyUI master, follow these steps:
+Before merging to hanzoai/studio master, follow these steps:
 
-1. Add the "Released" tag to the ComfyUI OpenAPI yaml file for each endpoint you are using in the nodes. 
-1. Make sure the ComfyUI API is deployed to prod with your changes.
+1. Add the "Released" tag to the Hanzo Studio OpenAPI yaml file for each endpoint you are using in the nodes. 
+1. Make sure the Hanzo Studio API is deployed to prod with your changes.
 1. Run the code generation again with `redocly.yaml` and the production OpenAPI yaml file.
 
 ```bash
 # Download the OpenAPI file from prod server.
-curl -o openapi.yaml https://api.comfy.org/openapi
+curl -o openapi.yaml https://api.hanzo.ai/openapi
 
 # Filter out unneeded API definitions.
 npm install -g @redocly/cli

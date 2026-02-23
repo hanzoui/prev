@@ -30,7 +30,7 @@ import comfy.utils
 import comfy.model_management
 from comfy_api import feature_flags
 import node_helpers
-from comfyui_version import __version__
+from hanzo_studio_version import __version__
 from app.frontend_management import FrontendManager, parse_version
 from comfy_api.internal import _ComfyNodeInternal
 
@@ -46,7 +46,7 @@ from protocol import BinaryEventTypes
 from middleware.cache_middleware import cache_control
 
 if args.enable_manager:
-    import comfyui_manager
+    import hanzo_studio_manager
 
 
 def _remove_sensitive_from_queue(queue: list) -> list:
@@ -223,7 +223,7 @@ class PromptServer():
             middlewares.append(create_block_external_middleware())
 
         if args.enable_manager:
-            middlewares.append(comfyui_manager.create_middleware())
+            middlewares.append(hanzo_studio_manager.create_middleware())
 
         max_upload_size = round(args.max_upload_size * 1024 * 1024)
         self.app = web.Application(client_max_size=max_upload_size, middlewares=middlewares)
@@ -615,7 +615,7 @@ class PromptServer():
                     "os": sys.platform,
                     "ram_total": ram_total,
                     "ram_free": ram_free,
-                    "comfyui_version": __version__,
+                    "hanzo_studio_version": __version__,
                     "required_frontend_version": required_frontend_version,
                     "installed_templates_version": installed_templates_version,
                     "required_templates_version": required_templates_version,

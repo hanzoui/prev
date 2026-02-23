@@ -45,8 +45,8 @@ jobs:
             echo If you just want to update normally, close this and run update_comfyui.bat instead.
             echo -
             pause
-            ..\python_embeded\python.exe -s -m pip install --upgrade ${{ inputs.torch_dependencies }} -r ../ComfyUI/requirements.txt pygit2
-            pause" > update_comfyui_and_python_dependencies.bat
+            ..\python_embeded\python.exe -s -m pip install --upgrade ${{ inputs.torch_dependencies }} -r ../Hanzo Studio/requirements.txt pygit2
+            pause" > update_hanzo_studio_and_python_dependencies.bat
 
             grep -v comfyui requirements.txt > requirements_nocomfyui.txt
             python -m pip wheel --no-cache-dir ${{ inputs.torch_dependencies }} -r requirements_nocomfyui.txt pygit2 -w ./temp_wheel_dir
@@ -60,5 +60,5 @@ jobs:
           with:
             path: |
               ${{ inputs.cache_tag }}_python_deps.tar
-              update_comfyui_and_python_dependencies.bat
+              update_hanzo_studio_and_python_dependencies.bat
             key: ${{ runner.os }}-build-${{ inputs.cache_tag }}-${{ inputs.python_minor }}

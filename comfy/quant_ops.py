@@ -2,8 +2,8 @@ import torch
 import logging
 
 try:
-    import comfy_kitchen as ck
-    from comfy_kitchen.tensor import (
+    import hanzo_kitchen as ck
+    from hanzo_kitchen.tensor import (
         QuantizedTensor,
         QuantizedLayout,
         TensorCoreFP8Layout as _CKFp8Layout,
@@ -22,9 +22,9 @@ try:
 
     ck.registry.disable("triton")
     for k, v in ck.list_backends().items():
-        logging.info(f"Found comfy_kitchen backend {k}: {v}")
+        logging.info(f"Found hanzo_kitchen backend {k}: {v}")
 except ImportError as e:
-    logging.error(f"Failed to import comfy_kitchen, Error: {e}, fp8 and fp4 support will not be available.")
+    logging.error(f"Failed to import hanzo_kitchen, Error: {e}, fp8 and fp4 support will not be available.")
     _CK_AVAILABLE = False
 
     class QuantizedTensor:

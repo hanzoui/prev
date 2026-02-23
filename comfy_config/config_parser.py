@@ -52,7 +52,7 @@ def validate_and_extract_accelerator_classifiers(classifiers: list) -> list:
 Extract configuration from a custom node directory's pyproject.toml file or a Python file.
 
 This function reads and parses the pyproject.toml file in the specified directory
-to extract project and ComfyUI-specific configuration information. If no
+to extract project and Hanzo Studio-specific configuration information. If no
 pyproject.toml file is found, it creates a minimal configuration using the
 folder name as the project name. If a Python file is provided, it uses the
 file name (without extension) as the project name.
@@ -67,7 +67,7 @@ Args:
 Returns:
     Optional[PyProjectConfig]: A PyProjectConfig object containing:
         - project: Basic project information (name, version, dependencies, etc.)
-        - tool_comfy: ComfyUI-specific configuration (publisher_id, models, etc.)
+        - tool_comfy: Hanzo Studio-specific configuration (publisher_id, models, etc.)
         Returns None if configuration extraction fails or if the provided file
         is not a Python file.
 
@@ -116,13 +116,13 @@ def extract_node_configuration(path) -> Optional[PyProjectConfig]:
     comfy_data = tool_data.get("comfy", {}) if tool_data else {}
 
     dependencies = project_data.get("dependencies", [])
-    supported_comfyui_frontend_version = ""
+    supported_hanzo_studio_frontend_version = ""
     for dep in dependencies:
-        if isinstance(dep, str) and dep.startswith("comfyui-frontend-package"):
-            supported_comfyui_frontend_version = dep.removeprefix("comfyui-frontend-package")
+        if isinstance(dep, str) and dep.startswith("hanzo-studio-frontend-package"):
+            supported_hanzo_studio_frontend_version = dep.removeprefix("hanzo-studio-frontend-package")
             break
 
-    supported_comfyui_version = comfy_data.get("requires-comfyui", "")
+    supported_hanzo_studio_version = comfy_data.get("requires-comfyui", "")
 
     classifiers = project_data.get('classifiers', [])
     supported_os = validate_and_extract_os_classifiers(classifiers)
@@ -130,8 +130,8 @@ def extract_node_configuration(path) -> Optional[PyProjectConfig]:
 
     project_data['supported_os'] = supported_os
     project_data['supported_accelerators'] = supported_accelerators
-    project_data['supported_comfyui_frontend_version'] = supported_comfyui_frontend_version
-    project_data['supported_comfyui_version'] = supported_comfyui_version
+    project_data['supported_hanzo_studio_frontend_version'] = supported_hanzo_studio_frontend_version
+    project_data['supported_hanzo_studio_version'] = supported_hanzo_studio_version
 
     return PyProjectConfig(project=project_data, tool_comfy=comfy_data)
 

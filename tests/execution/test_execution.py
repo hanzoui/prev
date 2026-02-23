@@ -207,19 +207,19 @@ class TestExecution:
 
     def start_client(self, listen:str, port:int):
         # Start client
-        comfy_client = ComfyClient()
+        hanzo_client = ComfyClient()
         # Connect to server (with retries)
         n_tries = 5
         for i in range(n_tries):
             time.sleep(4)
             try:
-                comfy_client.connect(listen=listen, port=port)
+                hanzo_client.connect(listen=listen, port=port)
             except ConnectionRefusedError as e:
                 print(e)  # noqa: T201
                 print(f"({i+1}/{n_tries}) Retrying...")  # noqa: T201
             else:
                 break
-        return comfy_client
+        return hanzo_client
 
     @fixture(scope="class", autouse=True)
     def shared_client(self, args_pytest, server):

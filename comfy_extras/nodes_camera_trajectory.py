@@ -191,7 +191,7 @@ class WanCameraEmbedding(io.ComfyNode):
     def execute(cls, camera_pose, width, height, length, speed=1.0, fx=0.5, fy=0.5, cx=0.5, cy=0.5) -> io.NodeOutput:
         """
         Use Camera trajectory as extrinsic parameters to calculate Plücker embeddings (Sitzmannet al., 2021)
-        Adapted from https://github.com/aigc-apps/VideoX-Fun/blob/main/comfyui/comfyui_nodes.py
+        Adapted from https://github.com/aigc-apps/VideoX-Fun/blob/main/comfyui/hanzo_studio_nodes.py
         """
         motion_list = [camera_pose]
         speed = speed

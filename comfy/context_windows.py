@@ -521,7 +521,7 @@ def create_weights_pyramid(length: int, **kwargs) -> list[float]:
     return weight_sequence
 
 def create_weights_overlap_linear(length: int, full_length: int, idxs: list[int], handler: IndexListContextHandler, **kwargs):
-    # based on code in Kijai's WanVideoWrapper: https://github.com/kijai/ComfyUI-WanVideoWrapper/blob/dbb2523b37e4ccdf45127e5ae33e31362f755c8e/nodes.py#L1302
+    # based on code in Kijai's WanVideoWrapper: https://github.com/kijai/Hanzo Studio-WanVideoWrapper/blob/dbb2523b37e4ccdf45127e5ae33e31362f755c8e/nodes.py#L1302
     # only expected overlap is given different weights
     weights_torch = torch.ones((length))
     # blend left-side on all except first window
@@ -609,7 +609,7 @@ def shift_window_to_end(window: list[int], num_frames: int):
         window[i] = window[i] + end_delta
 
 
-# https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved/blob/90fb1331201a4b29488089e4fbffc0d82cc6d0a9/animatediff/sample_settings.py#L465
+# https://github.com/Kosinkadink/Hanzo Studio-AnimateDiff-Evolved/blob/90fb1331201a4b29488089e4fbffc0d82cc6d0a9/animatediff/sample_settings.py#L465
 def apply_freenoise(noise: torch.Tensor, dim: int, context_length: int, context_overlap: int, seed: int):
     logging.info("Context windows: Applying FreeNoise")
     generator = torch.Generator(device='cpu').manual_seed(seed)

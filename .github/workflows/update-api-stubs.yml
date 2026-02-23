@@ -1,4 +1,4 @@
-name: Generate Pydantic Stubs from api.comfy.org
+name: Generate Pydantic Stubs from api.hanzo.ai
 
 on:
   schedule:
@@ -26,7 +26,7 @@ jobs:
       
       - name: Download OpenAPI spec
         run: |
-          curl -o openapi.yaml https://api.comfy.org/openapi
+          curl -o openapi.yaml https://api.hanzo.ai/openapi
       
       - name: Filter OpenAPI spec with Redocly
         run: |
@@ -46,9 +46,9 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           commit-message: 'chore: update API models from OpenAPI spec'
-          title: 'Update API models from api.comfy.org'
+          title: 'Update API models from api.hanzo.ai'
           body: |
-            This PR updates the API models based on the latest api.comfy.org OpenAPI specification.
+            This PR updates the API models based on the latest api.hanzo.ai OpenAPI specification.
             
             Generated automatically by the a Github workflow.
           branch: update-api-stubs

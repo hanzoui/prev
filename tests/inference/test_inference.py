@@ -163,19 +163,19 @@ class TestInference:
 
     def start_client(self, listen:str, port:int):
         # Start client
-        comfy_client = ComfyClient()
+        hanzo_client = ComfyClient()
         # Connect to server (with retries)
         n_tries = 5
         for i in range(n_tries):
             time.sleep(4)
             try:
-                comfy_client.connect(listen=listen, port=port)
+                hanzo_client.connect(listen=listen, port=port)
             except ConnectionRefusedError as e:
                 print(e)  # noqa: T201
                 print(f"({i+1}/{n_tries}) Retrying...")  # noqa: T201
             else:
                 break
-        return comfy_client
+        return hanzo_client
 
     #
     # Client and graph fixtures with server warmup
@@ -187,13 +187,13 @@ class TestInference:
         comfy_graph = request.param
 
         # Start client
-        comfy_client = self.start_client(args_pytest["listen"], args_pytest["port"])
+        hanzo_client = self.start_client(args_pytest["listen"], args_pytest["port"])
 
         # Warm up pipeline
-        comfy_client.get_images(graph=comfy_graph.graph, save=False)
+        hanzo_client.get_images(graph=comfy_graph.graph, save=False)
 
-        yield comfy_client, comfy_graph
-        del comfy_client
+        yield hanzo_client, comfy_graph
+        del hanzo_client
         del comfy_graph
         torch.cuda.empty_cache()
 

@@ -153,8 +153,8 @@ if not os.path.exists(req_path) or not files_equal(repo_req_path, req_path):
         pass
 
 
-stable_update_script = os.path.join(repo_path, ".ci/update_windows/update_comfyui_stable.bat")
-stable_update_script_to = os.path.join(cur_path, "update_comfyui_stable.bat")
+stable_update_script = os.path.join(repo_path, ".ci/update_windows/update_hanzo_studio_stable.bat")
+stable_update_script_to = os.path.join(cur_path, "update_hanzo_studio_stable.bat")
 
 try:
     if not file_size(stable_update_script_to) > 10:

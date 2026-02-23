@@ -40,7 +40,7 @@ def _extract_job_metadata(extra_data: dict) -> tuple[Optional[int], Optional[str
 def is_previewable(media_type: str, item: dict) -> bool:
     """
     Check if an output item is previewable.
-    Matches frontend logic in Hanzo Studio_frontend/src/stores/queueStore.ts
+    Matches frontend logic in HanzoStudio_frontend/src/stores/queueStore.ts
     Maintains backwards compatibility with existing logic.
 
     Priority:

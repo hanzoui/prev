@@ -387,7 +387,7 @@ class ThresholdMask(IO.ComfyNode):
 
 
 # Mask Preview - original implement from
-# https://github.com/cubiq/Hanzo Studio_essentials/blob/9d9f4bedfc9f0321c19faf71855e228c93bd0dc9/mask.py#L81
+# https://github.com/cubiq/HanzoStudio_essentials/blob/9d9f4bedfc9f0321c19faf71855e228c93bd0dc9/mask.py#L81
 # upstream requested in https://github.com/Kosinkadink/rfcs/blob/main/rfcs/0000-corenodes.md#preview-nodes
 class MaskPreview(IO.ComfyNode):
     @classmethod

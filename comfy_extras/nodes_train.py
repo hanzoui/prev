@@ -1112,7 +1112,7 @@ class SaveLoRA(io.ComfyNode):
                 ),
                 io.String.Input(
                     "prefix",
-                    default="loras/Hanzo Studio_trained_lora",
+                    default="loras/HanzoStudio_trained_lora",
                     tooltip="The prefix to use for the saved LoRA file.",
                 ),
                 io.Int.Input(

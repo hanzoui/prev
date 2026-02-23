@@ -49,42 +49,42 @@ Hanzo Studio lets you design and execute advanced stable diffusion pipelines usi
 #### [Manual Install](#manual-install-windows-linux)
 Supports all operating systems and GPU types (NVIDIA, AMD, Intel, Apple Silicon, Ascend).
 
-## [Examples](https://hanzoai.github.io/Hanzo Studio_examples/)
-See what Hanzo Studio can do with the [example workflows](https://hanzoai.github.io/Hanzo Studio_examples/).
+## [Examples](https://hanzoai.github.io/HanzoStudio_examples/)
+See what Hanzo Studio can do with the [example workflows](https://hanzoai.github.io/HanzoStudio_examples/).
 
 ## Features
 - Nodes/graph/flowchart interface to experiment and create complex Stable Diffusion workflows without needing to code anything.
 - Image Models
-   - SD1.x, SD2.x ([unCLIP](https://hanzoai.github.io/Hanzo Studio_examples/unclip/))
-   - [SDXL](https://hanzoai.github.io/Hanzo Studio_examples/sdxl/), [SDXL Turbo](https://hanzoai.github.io/Hanzo Studio_examples/sdturbo/)
-   - [Stable Cascade](https://hanzoai.github.io/Hanzo Studio_examples/stable_cascade/)
-   - [SD3 and SD3.5](https://hanzoai.github.io/Hanzo Studio_examples/sd3/)
+   - SD1.x, SD2.x ([unCLIP](https://hanzoai.github.io/HanzoStudio_examples/unclip/))
+   - [SDXL](https://hanzoai.github.io/HanzoStudio_examples/sdxl/), [SDXL Turbo](https://hanzoai.github.io/HanzoStudio_examples/sdturbo/)
+   - [Stable Cascade](https://hanzoai.github.io/HanzoStudio_examples/stable_cascade/)
+   - [SD3 and SD3.5](https://hanzoai.github.io/HanzoStudio_examples/sd3/)
    - Pixart Alpha and Sigma
-   - [AuraFlow](https://hanzoai.github.io/Hanzo Studio_examples/aura_flow/)
-   - [HunyuanDiT](https://hanzoai.github.io/Hanzo Studio_examples/hunyuan_dit/)
-   - [Flux](https://hanzoai.github.io/Hanzo Studio_examples/flux/)
-   - [Lumina Image 2.0](https://hanzoai.github.io/Hanzo Studio_examples/lumina2/)
-   - [HiDream](https://hanzoai.github.io/Hanzo Studio_examples/hidream/)
-   - [Qwen Image](https://hanzoai.github.io/Hanzo Studio_examples/qwen_image/)
-   - [Hunyuan Image 2.1](https://hanzoai.github.io/Hanzo Studio_examples/hunyuan_image/)
-   - [Flux 2](https://hanzoai.github.io/Hanzo Studio_examples/flux2/)
-   - [Z Image](https://hanzoai.github.io/Hanzo Studio_examples/z_image/)
+   - [AuraFlow](https://hanzoai.github.io/HanzoStudio_examples/aura_flow/)
+   - [HunyuanDiT](https://hanzoai.github.io/HanzoStudio_examples/hunyuan_dit/)
+   - [Flux](https://hanzoai.github.io/HanzoStudio_examples/flux/)
+   - [Lumina Image 2.0](https://hanzoai.github.io/HanzoStudio_examples/lumina2/)
+   - [HiDream](https://hanzoai.github.io/HanzoStudio_examples/hidream/)
+   - [Qwen Image](https://hanzoai.github.io/HanzoStudio_examples/qwen_image/)
+   - [Hunyuan Image 2.1](https://hanzoai.github.io/HanzoStudio_examples/hunyuan_image/)
+   - [Flux 2](https://hanzoai.github.io/HanzoStudio_examples/flux2/)
+   - [Z Image](https://hanzoai.github.io/HanzoStudio_examples/z_image/)
 - Image Editing Models
-   - [Omnigen 2](https://hanzoai.github.io/Hanzo Studio_examples/omnigen/)
-   - [Flux Kontext](https://hanzoai.github.io/Hanzo Studio_examples/flux/#flux-kontext-image-editing-model)
-   - [HiDream E1.1](https://hanzoai.github.io/Hanzo Studio_examples/hidream/#hidream-e11)
-   - [Qwen Image Edit](https://hanzoai.github.io/Hanzo Studio_examples/qwen_image/#edit-model)
+   - [Omnigen 2](https://hanzoai.github.io/HanzoStudio_examples/omnigen/)
+   - [Flux Kontext](https://hanzoai.github.io/HanzoStudio_examples/flux/#flux-kontext-image-editing-model)
+   - [HiDream E1.1](https://hanzoai.github.io/HanzoStudio_examples/hidream/#hidream-e11)
+   - [Qwen Image Edit](https://hanzoai.github.io/HanzoStudio_examples/qwen_image/#edit-model)
 - Video Models
-   - [Stable Video Diffusion](https://hanzoai.github.io/Hanzo Studio_examples/video/)
-   - [Mochi](https://hanzoai.github.io/Hanzo Studio_examples/mochi/)
-   - [LTX-Video](https://hanzoai.github.io/Hanzo Studio_examples/ltxv/)
-   - [Hunyuan Video](https://hanzoai.github.io/Hanzo Studio_examples/hunyuan_video/)
-   - [Wan 2.1](https://hanzoai.github.io/Hanzo Studio_examples/wan/)
-   - [Wan 2.2](https://hanzoai.github.io/Hanzo Studio_examples/wan22/)
+   - [Stable Video Diffusion](https://hanzoai.github.io/HanzoStudio_examples/video/)
+   - [Mochi](https://hanzoai.github.io/HanzoStudio_examples/mochi/)
+   - [LTX-Video](https://hanzoai.github.io/HanzoStudio_examples/ltxv/)
+   - [Hunyuan Video](https://hanzoai.github.io/HanzoStudio_examples/hunyuan_video/)
+   - [Wan 2.1](https://hanzoai.github.io/HanzoStudio_examples/wan/)
+   - [Wan 2.2](https://hanzoai.github.io/HanzoStudio_examples/wan22/)
    - [Hunyuan Video 1.5](https://docs.hanzo.ai/tutorials/video/hunyuan/hunyuan-video-1-5)
 - Audio Models
-   - [Stable Audio](https://hanzoai.github.io/Hanzo Studio_examples/audio/)
-   - [ACE Step](https://hanzoai.github.io/Hanzo Studio_examples/audio/)
+   - [Stable Audio](https://hanzoai.github.io/HanzoStudio_examples/audio/)
+   - [ACE Step](https://hanzoai.github.io/HanzoStudio_examples/audio/)
 - 3D Models
    - [Hunyuan3D 2.0](https://docs.hanzo.ai/tutorials/3d/hunyuan3D-2)
 - Asynchronous Queue system
@@ -94,24 +94,24 @@ See what Hanzo Studio can do with the [example workflows](https://hanzoai.github
 - Can load ckpt and safetensors: All in one checkpoints or standalone diffusion models, VAEs and CLIP models.
 - Safe loading of ckpt, pt, pth, etc.. files.
 - Embeddings/Textual inversion
-- [Loras (regular, locon and loha)](https://hanzoai.github.io/Hanzo Studio_examples/lora/)
-- [Hypernetworks](https://hanzoai.github.io/Hanzo Studio_examples/hypernetworks/)
+- [Loras (regular, locon and loha)](https://hanzoai.github.io/HanzoStudio_examples/lora/)
+- [Hypernetworks](https://hanzoai.github.io/HanzoStudio_examples/hypernetworks/)
 - Loading full workflows (with seeds) from generated PNG, WebP and FLAC files.
 - Saving/Loading workflows as Json files.
-- Nodes interface can be used to create complex workflows like one for [Hires fix](https://hanzoai.github.io/Hanzo Studio_examples/2_pass_txt2img/) or much more advanced ones.
-- [Area Composition](https://hanzoai.github.io/Hanzo Studio_examples/area_composition/)
-- [Inpainting](https://hanzoai.github.io/Hanzo Studio_examples/inpaint/) with both regular and inpainting models.
-- [ControlNet and T2I-Adapter](https://hanzoai.github.io/Hanzo Studio_examples/controlnet/)
-- [Upscale Models (ESRGAN, ESRGAN variants, SwinIR, Swin2SR, etc...)](https://hanzoai.github.io/Hanzo Studio_examples/upscale_models/)
-- [GLIGEN](https://hanzoai.github.io/Hanzo Studio_examples/gligen/)
-- [Model Merging](https://hanzoai.github.io/Hanzo Studio_examples/model_merging/)
-- [LCM models and Loras](https://hanzoai.github.io/Hanzo Studio_examples/lcm/)
+- Nodes interface can be used to create complex workflows like one for [Hires fix](https://hanzoai.github.io/HanzoStudio_examples/2_pass_txt2img/) or much more advanced ones.
+- [Area Composition](https://hanzoai.github.io/HanzoStudio_examples/area_composition/)
+- [Inpainting](https://hanzoai.github.io/HanzoStudio_examples/inpaint/) with both regular and inpainting models.
+- [ControlNet and T2I-Adapter](https://hanzoai.github.io/HanzoStudio_examples/controlnet/)
+- [Upscale Models (ESRGAN, ESRGAN variants, SwinIR, Swin2SR, etc...)](https://hanzoai.github.io/HanzoStudio_examples/upscale_models/)
+- [GLIGEN](https://hanzoai.github.io/HanzoStudio_examples/gligen/)
+- [Model Merging](https://hanzoai.github.io/HanzoStudio_examples/model_merging/)
+- [LCM models and Loras](https://hanzoai.github.io/HanzoStudio_examples/lcm/)
 - Latent previews with [TAESD](#how-to-show-high-quality-previews)
 - Works fully offline: core will never download anything unless you want to.
 - Optional API nodes to use paid models from external providers through the online [Comfy API](https://docs.hanzo.ai/tutorials/api-nodes/overview).
 - [Config file](extra_model_paths.yaml.example) to set the search paths for models.
 
-Workflow examples can be found on the [Examples page](https://hanzoai.github.io/Hanzo Studio_examples/)
+Workflow examples can be found on the [Examples page](https://hanzoai.github.io/HanzoStudio_examples/)
 
 ## Release Process
 
@@ -177,7 +177,7 @@ Hanzo Studio follows a weekly release cycle targeting Monday but this regularly 
 
 There is a portable standalone build for Windows that should work for running on Nvidia GPUs or for running on your CPU only on the [releases page](https://github.com/hanzoai/studio/releases).
 
-### [Direct link to download](https://github.com/hanzoai/studio/releases/latest/download/Hanzo Studio_windows_portable_nvidia.7z)
+### [Direct link to download](https://github.com/hanzoai/studio/releases/latest/download/HanzoStudio_windows_portable_nvidia.7z)
 
 Simply download, extract with [7-Zip](https://7-zip.org) or with the windows explorer on recent windows versions and run. For smaller models you normally only need to put the checkpoints (the huge ckpt/safetensors files) in: Hanzo Studio\models\checkpoints but many of the larger models have multiple files. Make sure to follow the instructions to know which subfolder to put them in Hanzo Studio\models\
 
@@ -187,11 +187,11 @@ Update your Nvidia drivers if it doesn't start.
 
 #### Alternative Downloads:
 
-[Experimental portable for AMD GPUs](https://github.com/hanzoai/studio/releases/latest/download/Hanzo Studio_windows_portable_amd.7z)
+[Experimental portable for AMD GPUs](https://github.com/hanzoai/studio/releases/latest/download/HanzoStudio_windows_portable_amd.7z)
 
-[Portable with pytorch cuda 12.8 and python 3.12](https://github.com/hanzoai/studio/releases/latest/download/Hanzo Studio_windows_portable_nvidia_cu128.7z).
+[Portable with pytorch cuda 12.8 and python 3.12](https://github.com/hanzoai/studio/releases/latest/download/HanzoStudio_windows_portable_nvidia_cu128.7z).
 
-[Portable with pytorch cuda 12.6 and python 3.12](https://github.com/hanzoai/studio/releases/latest/download/Hanzo Studio_windows_portable_nvidia_cu126.7z) (Supports Nvidia 10 series and older GPUs).
+[Portable with pytorch cuda 12.6 and python 3.12](https://github.com/hanzoai/studio/releases/latest/download/HanzoStudio_windows_portable_nvidia_cu126.7z) (Supports Nvidia 10 series and older GPUs).
 
 #### How do I share models between another UI and Hanzo Studio?
 

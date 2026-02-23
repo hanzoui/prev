@@ -8,7 +8,7 @@ Below are a collection of nodes that work by calling external APIs. More informa
 
 While developing, you should be testing against the Staging environment. To test against staging:
 
-**Install Hanzo Studio_frontend**
+**Install HanzoStudio_frontend**
 
 Follow the instructions [here](https://github.com/hanzoui/studio_frontend) to start the frontend server. By default, it will connect to Staging authentication. 
 

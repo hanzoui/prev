@@ -42,7 +42,7 @@ jobs:
         - shell: bash
           run: |
             cd ..
-            cp -r Hanzo Studio Hanzo Studio_copy
+            cp -r Hanzo Studio HanzoStudio_copy
             curl https://www.python.org/ftp/python/3.${{ inputs.python_minor }}.${{ inputs.python_patch }}/python-3.${{ inputs.python_minor }}.${{ inputs.python_patch }}-embed-amd64.zip -o python_embeded.zip
             unzip python_embeded.zip -d python_embeded
             cd python_embeded
@@ -58,13 +58,13 @@ jobs:
             cd ..
 
             git clone --depth 1 https://github.com/hanzoai/taesd
-            cp taesd/*.safetensors ./Hanzo Studio_copy/models/vae_approx/
+            cp taesd/*.safetensors ./HanzoStudio_copy/models/vae_approx/
 
-            mkdir Hanzo Studio_windows_portable_nightly_pytorch
-            mv python_embeded Hanzo Studio_windows_portable_nightly_pytorch
-            mv Hanzo Studio_copy Hanzo Studio_windows_portable_nightly_pytorch/Hanzo Studio
+            mkdir HanzoStudio_windows_portable_nightly_pytorch
+            mv python_embeded HanzoStudio_windows_portable_nightly_pytorch
+            mv HanzoStudio_copy HanzoStudio_windows_portable_nightly_pytorch/Hanzo Studio
 
-            cd Hanzo Studio_windows_portable_nightly_pytorch
+            cd HanzoStudio_windows_portable_nightly_pytorch
 
             mkdir update
             cp -r Hanzo Studio/.ci/update_windows/* ./update/
@@ -76,10 +76,10 @@ jobs:
             pause" > ./update/update_hanzo_studio_and_python_dependencies.bat
             cd ..
 
-            "C:\Program Files\7-Zip\7z.exe" a -t7z -m0=lzma2 -mx=9 -mfb=128 -md=512m -ms=on -mf=BCJ2 Hanzo Studio_windows_portable_nightly_pytorch.7z Hanzo Studio_windows_portable_nightly_pytorch
-            mv Hanzo Studio_windows_portable_nightly_pytorch.7z Hanzo Studio/Hanzo Studio_windows_portable_nvidia_or_cpu_nightly_pytorch.7z
+            "C:\Program Files\7-Zip\7z.exe" a -t7z -m0=lzma2 -mx=9 -mfb=128 -md=512m -ms=on -mf=BCJ2 HanzoStudio_windows_portable_nightly_pytorch.7z HanzoStudio_windows_portable_nightly_pytorch
+            mv HanzoStudio_windows_portable_nightly_pytorch.7z Hanzo Studio/HanzoStudio_windows_portable_nvidia_or_cpu_nightly_pytorch.7z
 
-            cd Hanzo Studio_windows_portable_nightly_pytorch
+            cd HanzoStudio_windows_portable_nightly_pytorch
             python_embeded/python.exe -s Hanzo Studio/main.py --quick-test-for-ci --cpu
 
             ls
@@ -88,6 +88,6 @@ jobs:
           uses: svenstaro/upload-release-action@v2
           with:
                 repo_token: ${{ secrets.GITHUB_TOKEN }}
-                file: Hanzo Studio_windows_portable_nvidia_or_cpu_nightly_pytorch.7z
+                file: HanzoStudio_windows_portable_nvidia_or_cpu_nightly_pytorch.7z
                 tag: "latest"
                 overwrite: true

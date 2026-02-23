@@ -326,7 +326,7 @@ For models compatible with Iluvatar Extension for PyTorch. Here's a step-by-step
 2. Launch Hanzo Studio by running `python main.py`
 
 
-## [Hanzo Manager](https://github.com/hanzoui/studio-Manager/tree/manager-v4)
+## [Hanzo Manager](https://github.com/hanzoui/manager/tree/manager-v4)
 
 **Hanzo Manager** is an extension that allows you to easily install, update, and manage custom nodes for Hanzo Studio.
 

@@ -132,7 +132,7 @@ class SaveAnimatedWEBP(IO.ComfyNode):
             category="image/animation",
             inputs=[
                 IO.Image.Input("images"),
-                IO.String.Input("filename_prefix", default="Hanzo Studio"),
+                IO.String.Input("filename_prefix", default="HanzoStudio"),
                 IO.Float.Input("fps", default=6.0, min=0.01, max=1000.0, step=0.01),
                 IO.Boolean.Input("lossless", default=True),
                 IO.Int.Input("quality", default=80, min=0, max=100),
@@ -169,7 +169,7 @@ class SaveAnimatedPNG(IO.ComfyNode):
             category="image/animation",
             inputs=[
                 IO.Image.Input("images"),
-                IO.String.Input("filename_prefix", default="Hanzo Studio"),
+                IO.String.Input("filename_prefix", default="HanzoStudio"),
                 IO.Float.Input("fps", default=6.0, min=0.01, max=1000.0, step=0.01),
                 IO.Int.Input("compress_level", default=4, min=0, max=9),
             ],
@@ -178,7 +178,7 @@ class SaveAnimatedPNG(IO.ComfyNode):
         )
 
     @classmethod
-    def execute(cls, images, fps, compress_level, filename_prefix="Hanzo Studio") -> IO.NodeOutput:
+    def execute(cls, images, fps, compress_level, filename_prefix="HanzoStudio") -> IO.NodeOutput:
         return IO.NodeOutput(
             ui=UI.ImageSaveHelper.get_save_animated_png_ui(
                 images=images,

@@ -405,7 +405,7 @@ class MaskPreview(IO.ComfyNode):
         )
 
     @classmethod
-    def execute(cls, mask, filename_prefix="Hanzo Studio") -> IO.NodeOutput:
+    def execute(cls, mask, filename_prefix="HanzoStudio") -> IO.NodeOutput:
         return IO.NodeOutput(ui=UI.PreviewMask(mask))
 
 
